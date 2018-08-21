@@ -11,16 +11,25 @@ This app is for displaying a list of blog posts that we have in a json file. We 
 2. Begin working in code editor.
 
 ## Architecture
-HTML
-CSS
-JavaScript
-Jquery
-AJAX
-Handlebars
+- HTML
+- CSS
+- JavaScript
+- Jquery
+- AJAX
+- Handlebars
 
 ## Change Log
+commit 91aff0694291d625671559253661ecc6e60aae01
+Author: Kris3579 <kristianesvelt@hotmail.com>
+Date:   Tue Aug 21 11:13:20 2018 -0700
 
-01-01-2001 4:59pm - 
+    lab finished
+
+commit fa686370a94d787eb7df9592ff24045b41178403
+Author: Katherine Smith <katherine.lo.smith@gmail.com>
+Date:   Tue Aug 21 10:26:56 2018 -0700
+
+    Complete Article.fetchAll function to retrieve articles with AJAX
 
 ## Credits and Collaborations
 Thanks to Katy for help with git problems.
