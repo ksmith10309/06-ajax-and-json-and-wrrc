@@ -40,25 +40,28 @@ Article.loadAll = articleData => {
   articleData.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)))
 
   articleData.forEach(articleObject => Article.all.push(new Article(articleObject)))
+
+  articleView.initIndexPage();
 }
 
 // REVIEW: This function will retrieve the data from either a local or remote source, and process it, then hand off control to the View.
 Article.fetchAll = () => {
   // REVIEW: What is this 'if' statement checking for? Where was the rawData set to local storage?
   if (localStorage.rawData) {
-    let articleData = JSON.parse(localStorage.getItem("rawData"));
+    let articleData = JSON.parse(localStorage.getItem('rawData'));
 
     Article.loadAll(articleData);
 
   } else {
+    // We determined that we would need to first get the data, then set to local storage stringified, then we declare articleData as equal to the parsed local storage data. Finally we run the Article.loadAll function using articleData as a parmeter.
 
     $.getJSON('http://127.0.0.1:8080/data/hackerIpsum.json')
       .then(data => {
-        console.log("Got the data");
-        console.log(data);
-        localStorage.setItem("rawData", JSON.stringify(data));
+        localStorage.setItem('rawData', JSON.stringify(data));
+        let articleData = JSON.parse(localStorage.getItem('rawData'));  
+        Article.loadAll(articleData);
       })
+
   }
 }
 
-Article.fetchAll();
